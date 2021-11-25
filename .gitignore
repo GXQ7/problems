@@ -1,8 +1,3 @@
 .vscode
 lib
-src\test
-target
-pom.xml
-.settings
-.project
-.classpath
+src
