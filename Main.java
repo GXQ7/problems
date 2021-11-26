@@ -7,21 +7,22 @@ public class Main {
     public static void main(String[] args) {
     }
 
-    // Kadane's Algorithms - create a subarray with the largest sum
-    public int maxSubArray(int[] nums) {
-        int sum = 0;
-        int maxSum = Integer.MIN_VALUE;
-        for (int i = 0; i < nums.length; i++) {
+     //Kadane's Algorithms - create a subarray with the largest sum
+     public int maxSubArray(int[] nums) {
+        int max = Integer.MIN_VALUE, sum = 0;
+        
+        
+        for(int i=0;i<nums.length;i++){
             sum += nums[i];
-            maxSum = Math.max(maxSum, sum);
-
-            // if the sum < 0 its better to reinitialize as negative numbers aren't going to
-            // contribute to the max sum (only decrease it)
-            if (sum < 0)
-                sum = 0;
+            max = Math.max(sum,max);
+            
+            // sum starts at 0 so if any point sum becomes negative (i.e. there are negative elements in the array)
+            //there's no point keeping it because 0 is obviously greater than negative, so just make sum 0
+            if(sum<0) sum = 0;
         }
-        return maxSum;
-    }
+        
+        return max;
+}
 
     /**
      * Sliding Window Time Complexity = O(n)
